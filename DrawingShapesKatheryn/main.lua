@@ -21,7 +21,7 @@ roundedRect:setFillColor( 0/255, 127/255, 127/255  )
 --Make a polygon
 local myPolygon
 local polygonVertices = {10,-90, 80,-25, 33,0, 40,80, 10,35 }
-myPolygon = display.newPolygon(520, 292, polygonVertices )
+local myPolygon = display.newPolygon(520, 292, polygonVertices )
 
 --Set color for Polygon
 myPolygon.fill = { 0/255, 127/255, 127/255 }
@@ -33,22 +33,10 @@ myPolygon.fill = { 0/255, 127/255, 127/255 }
 
  --Set color for Triangle 
  myTriangle.fill = { 0/255, 127/255, 127/255 }
-
---Set text for rounded Rectangle
 textObject = display.newText("Rounded Rectangle", 215, 330, native.systemFont, 43 )
-
---Set color of text
 textObject:setFillColor( 204/255, 0/255, 102/255 )
-
---Set text for Polygon
 textObject = display.newText(" Random Polygon", 635, 175, native.systemFont, 43 )
-
---set color for text
 textObject:setFillColor( 204/255, 0/255, 102/255)
-
---Set text for Triangle 
 textObject = display.newText(" Triangle", 300, 670, native.systemFont, 43 )
-
---Set color for text
 textObject:setFillColor(204/255, 0/255, 102/255)
 

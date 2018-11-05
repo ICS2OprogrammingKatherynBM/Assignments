@@ -22,7 +22,7 @@ local flounder = display.newImageRect("Images/flounder.png", 300, 300)
 local stitch = display.newImageRect("Images/stitch.png", 300, 300)
 
 local mood = display.newImageRect("Images/mood.png",300, 300)
- 
+
 --set initial x and y position of mood
 mood.x = display.contentWidth/2
 mood.y = 350

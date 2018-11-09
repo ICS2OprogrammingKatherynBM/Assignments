@@ -27,6 +27,8 @@ ground.width = display.contentWidth * 2
 
 --add  to physics
 physics.addBody(ground, "static", {friction=0.5, bounce=0.3})
+-----------------------------------------------------------------------------------------
+
 
 
 

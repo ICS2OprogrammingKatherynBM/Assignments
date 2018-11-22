@@ -15,6 +15,9 @@ sceneName = "splash_screen"
 
 -----------------------------------------------------------------------------------------
 
+--Hide status bar
+display.setStatusBar(display.HiddenStatusBar)
+
 -- Create Scene Object
 local scene = composer.newScene( sceneName )
 
@@ -23,20 +26,26 @@ local scene = composer.newScene( sceneName )
 -----------------------------------------------------------------------------------------
  
 -- The local variables for this scene
-local beetleship
-local scrollXSpeed = 8
-local scrollYSpeed = -3
-local jungleSounds = audio.loadSound("Sounds/animals144.mp3")
-local jungleSoundsChannel
+local pizzaMan 
+local scrollspeed = 3
+
 
 --------------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 --------------------------------------------------------------------------------------------
 
--- The function that moves the beetleship across the screen
-local function moveBeetleship()
-    beetleship.x = beetleship.x + scrollXSpeed
-    beetleship.y = beetleship.y + scrollYSpeed
+-- The function that moves the pizzaMan across the screen
+local function MovePizzaMan(event)
+    -- scroll speed
+    pizzaMan.x = pizzaMan.x + scrollspeed
+    --change the transparency
+    pizzaMan.alpha = pizzaMan.alpha + 0.01
+end
+
+
+local function RotatePizzaMan(event)
+    --rotate pizza man
+    pizzaMan.rotation = pizzaMan.rotation + 3
 end
 
 -- The function that will go to the main menu 
@@ -55,17 +64,31 @@ function scene:create( event )
     local sceneGroup = self.view
 
     -- set the background to be black
-    display.setDefault("background", 0, 0, 0)
+    display.setDefault("background", 0, 160, 0)
 
     -- Insert the beetleship image
-    beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
+    pizzaMan = display.newImageRect("Images/CompanyLogoKatheryn@2x.png", 200, 200)
+
+    --create the logo text
+    local text = display.newText("Jumping Animations", 400, 400, nil, 70)
+
+    --position on text
+    text.x = 1048
+    text.y = display.contentHeight/3
+
+    --make pizza man transparent
+    pizzaMan.alpha = 0
+
+    --set colour
+    text:setTextColor(216/255, 19/255, 19/255)
 
     -- set the initial x and y position of the beetleship
-    beetleship.x = 100
-    beetleship.y = display.contentHeight/2
+    pizzaMan.x = 100
+    pizzaMan.y = display.contentHeight/2
 
     -- Insert objects into the scene group in order to ONLY be associated with this scene
-    sceneGroup:insert( beetleship )
+    sceneGroup:insert( pizzaMan)
+    sceneGroup:insert( text )
 
 end -- function scene:create( event )
 
@@ -73,6 +96,7 @@ end -- function scene:create( event )
 
 -- The function called when the scene is issued to appear on screen
 function scene:show( event )
+    
 
     -- Creating a group that associates objects with the scene
     local sceneGroup = self.view
@@ -93,7 +117,13 @@ function scene:show( event )
         jungleSoundsChannel = audio.play(jungleSounds )
 
         -- Call the moveBeetleship function as soon as we enter the frame.
-        Runtime:addEventListener("enterFrame", moveBeetleship)
+        Runtime:addEventListener("enterFrame", MovePizzaMan)
+
+        --call function
+        Runtime:addEventListener("enterFrame", RotatePizzaMan)
+
+        --call function
+        Runtime:addEventListener("enterFrame", ScaleText)
 
         -- Go to the main menu screen after the given time.
         timer.performWithDelay ( 3000, gotoMainMenu)          

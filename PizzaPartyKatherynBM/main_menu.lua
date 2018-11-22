@@ -54,6 +54,7 @@ local function Level1ScreenTransition( )
 end    
 
 local function instructionsTransition()
+end
     
 -- INSERT LOCAL FUNCTION DEFINITION THAT GOES TO INSTRUCTIONS SCREEN 
 

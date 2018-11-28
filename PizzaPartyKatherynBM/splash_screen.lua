@@ -53,6 +53,11 @@ local function gotoMainMenu()
     composer.gotoScene( "main_menu" )
 end
 
+local function ScaleText(event)
+
+    -- scale the image
+    pizzaMan:scale(1.002, 1.002)
+end
 -----------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -66,7 +71,7 @@ function scene:create( event )
     -- set the background to be black
     display.setDefault("background", 0, 160, 0)
 
-    -- Insert the beetleship image
+    -- Insert the pizza man
     pizzaMan = display.newImageRect("Images/CompanyLogoKatheryn@2x.png", 200, 200)
 
     --create the logo text
@@ -82,7 +87,7 @@ function scene:create( event )
     --set colour
     text:setTextColor(216/255, 19/255, 19/255)
 
-    -- set the initial x and y position of the beetleship
+    -- set the initial x and y position of the pizza man
     pizzaMan.x = 100
     pizzaMan.y = display.contentHeight/2
 

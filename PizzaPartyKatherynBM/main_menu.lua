@@ -54,6 +54,7 @@ local function Level1ScreenTransition( )
 end    
 
 local function instructionsTransition()
+
 end
     
 -- INSERT LOCAL FUNCTION DEFINITION THAT GOES TO INSTRUCTIONS SCREEN 
@@ -129,6 +130,7 @@ function scene:create( event )
     -- Associating button widgets with this scene
     sceneGroup:insert( playButton )
     sceneGroup:insert( creditsButton )
+
     
     -- INSERT INSTRUCTIONS BUTTON INTO SCENE GROUP
 

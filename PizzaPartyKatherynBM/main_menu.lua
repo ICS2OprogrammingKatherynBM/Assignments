@@ -74,7 +74,7 @@ function scene:create( event )
     -----------------------------------------------------------------------------------------
 
     -- Insert the background image and set it to the center of the screen
-    bkg_image = display.newImage("Images/main_menu.png")
+    local bkg_image = display.newImageRect("Images/main_menu.png", 0 , 0)
     bkg_image.x = display.contentCenterX
     bkg_image.y = display.contentCenterY
     bkg_image.width = display.contentWidth
@@ -92,7 +92,7 @@ function scene:create( event )
     -----------------------------------------------------------------------------------------   
 
     -- Creating Play Button
-    playButton = widget.newButton( 
+    playButton = widget.newButton(
         {   
             -- Set its position on the screen relative to the screen size
             x = display.contentWidth/2,

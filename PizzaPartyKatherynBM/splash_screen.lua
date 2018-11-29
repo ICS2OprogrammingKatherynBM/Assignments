@@ -27,6 +27,7 @@ local scene = composer.newScene( sceneName )
  
 -- The local variables for this scene
 local pizzaMan 
+local text = display.newText("Jumping Animations", 400, 400, nil, 70)
 local scrollspeed = 3
 
 
@@ -58,6 +59,11 @@ local function ScaleText(event)
     -- scale the image
     pizzaMan:scale(1.002, 1.002)
 end
+    
+local  function MoveText()
+    text.x = text.x + scrollspeed
+
+end
 -----------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -73,9 +79,6 @@ function scene:create( event )
 
     -- Insert the pizza man
     pizzaMan = display.newImageRect("Images/CompanyLogoKatheryn@2x.png", 200, 200)
-
-    --create the logo text
-    local text = display.newText("Jumping Animations", 400, 400, nil, 70)
 
     --position on text
     text.x = 1048
@@ -94,7 +97,6 @@ function scene:create( event )
     -- Insert objects into the scene group in order to ONLY be associated with this scene
     sceneGroup:insert( pizzaMan)
     sceneGroup:insert( text )
-
 end -- function scene:create( event )
 
 --------------------------------------------------------------------------------------------
@@ -129,6 +131,8 @@ function scene:show( event )
 
         --call function
         Runtime:addEventListener("enterFrame", ScaleText)
+
+        Runtime:addEventListener("enterFrame", MoveText)
 
         -- Go to the main menu screen after the given time.
         timer.performWithDelay ( 3000, gotoMainMenu)          

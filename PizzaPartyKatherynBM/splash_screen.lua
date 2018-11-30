@@ -61,7 +61,7 @@ local function ScaleText(event)
 end
     
 local  function MoveText()
-    text.x = text.x + scrollspeed
+    text.x = text.x - scrollspeed
 
 end
 -----------------------------------------------------------------------------------------

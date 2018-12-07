@@ -26,7 +26,7 @@ scene = composer.newScene( sceneName ) -- This function doesn't accept a string,
 -----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
-local bkg_image
+local creditsScreen
 local backButton
 
 -----------------------------------------------------------------------------------------
@@ -54,17 +54,17 @@ function scene:create( event )
     -----------------------------------------------------------------------------------------
 
     -- Insert the background image and set it to the center of the screen
-    bkg_image = display.newImageRect("Images/Credits Screen.png", display.contentWidth, display.contentHeight)
-    bkg_image.x = display.contentCenterX
-    bkg_image.y = display.contentCenterY
-    bkg_image.width = display.contentWidth
-    bkg_image.height = display.contentHeight
+    creditsScreen = display.newImageRect("Images/Credits Screen.png", display.contentWidth, display.contentHeight)
+    creditsScreen.x = display.contentCenterX
+    creditsScreen.y = display.contentCenterY
+    creditsScreen.width = display.contentWidth
+    creditsScreen.height = display.contentHeight
 
     -- Associating display objects with this scene 
-    sceneGroup:insert( bkg_image )
+    sceneGroup:insert( creditsScreen )
 
     -- Send the background image to the back layer so all other objects can be on top
-    bkg_image:toBack()
+    creditsScreen:toBack()
 
     -----------------------------------------------------------------------------------------
     -- BUTTON WIDGETS
